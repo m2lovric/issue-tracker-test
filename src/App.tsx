@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react';
-import './App.css';
 import Issue from './components/Issue';
 import { useCreateIssue } from './hooks/useCreateIssue';
 import { useGetIssues } from './hooks/useGetIssues';

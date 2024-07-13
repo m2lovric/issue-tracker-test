@@ -1,14 +1,14 @@
-type Issue = {
+type TIssue = {
   id: number;
   createdAt: Date;
   title: string;
   status: Status;
 };
 
-enum Status {
-  LOW,
-  MEDIUM,
-  HIGH,
+export enum Status {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
 }
 
-export type { Issue };
+export type { TIssue };
