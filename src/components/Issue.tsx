@@ -22,6 +22,7 @@ function Issue({ issue }: IProps) {
       <p className='font-light'>
         {date.toLocaleTimeString()} {date.toLocaleDateString()}
       </p>
+      <button>{issue.isDone ? 'Completed' : 'Not Completed'}</button>
     </article>
   );
 }

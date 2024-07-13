@@ -3,12 +3,13 @@ type TIssue = {
   createdAt: Date;
   title: string;
   status: Status;
+  isDone: boolean;
 };
 
-export enum Status {
+enum Status {
   LOW = 'LOW',
   MEDIUM = 'MEDIUM',
   HIGH = 'HIGH',
 }
 
-export type { TIssue };
+export { TIssue, Status };
