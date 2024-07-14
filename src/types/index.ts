@@ -1,10 +1,16 @@
-type TIssue = {
+interface TIssue {
   id: number;
   createdAt: Date;
   title: string;
   status: Status;
   isDone: boolean;
-};
+}
+
+interface TIssueForm {
+  title: string;
+  status?: Status;
+  isDone?: boolean;
+}
 
 enum Status {
   LOW = 'LOW',
@@ -12,4 +18,4 @@ enum Status {
   HIGH = 'HIGH',
 }
 
-export { TIssue, Status };
+export { TIssue, TIssueForm, Status };
