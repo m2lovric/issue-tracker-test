@@ -14,12 +14,7 @@ function AddIssueForm() {
 
   function handleCreate(e: FormEvent) {
     e.preventDefault();
-    console.log(issue);
-    mutate(issue, {
-      onSuccess: (data) => {
-        console.log(data);
-      },
-    });
+    mutate(issue);
     setIssue({ title: '', status: 'LOW' as Status });
   }
 

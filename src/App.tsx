@@ -13,9 +13,14 @@ function App() {
       <AddIssueForm />
       <section>
         {data &&
-          data.map((issue) => (
-            <Issue key={issue.id.toString()} issue={issue} />
-          ))}
+          data
+            .sort((a, b) => {
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            })
+            .map((issue) => <Issue key={issue.id.toString()} issue={issue} />)}
       </section>
     </section>
   );

@@ -1,8 +1,8 @@
-import { QueryClient, useMutation } from '@tanstack/react-query';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { TIssue } from '../types';
 
 function useCreateIssue() {
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
     mutationFn: async (bodyData: { title: string }): Promise<TIssue> => {
@@ -16,12 +16,8 @@ function useCreateIssue() {
       const data = await response.json();
       return data;
     },
-    onSuccess: (newIssue) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['issues'] });
-      queryClient.setQueryData(['issues'], (oldIssues: TIssue[]) => [
-        ...oldIssues,
-        newIssue,
-      ]);
     },
   });
 
