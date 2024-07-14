@@ -6,9 +6,9 @@ interface IProps {
 
 function Issue({ issue }: IProps) {
   const date = new Date(issue.createdAt);
-  console.log(issue.status.valueOf());
+
   return (
-    <article className='flex flex-col items-start my-4 shadow-xl p-5'>
+    <article className='flex flex-col items-start my-4 shadow-xl p-5 bg-neutral-800'>
       <div className='flex items-center'>
         <h4 className='font-bold text-xl'>{issue.title}</h4>
         <div
