@@ -41,7 +41,10 @@ function AddIssueForm() {
           </option>
         ))}
       </select>
-      <button type='submit' className='shadow-xl p-2 bg-neutral-700 rounded'>
+      <button
+        type='submit'
+        className='shadow-xl p-2 bg-neutral-700 rounded font-black'
+      >
         Add Issue
       </button>
     </form>
