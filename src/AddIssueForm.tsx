@@ -6,16 +6,22 @@ function AddIssueForm() {
   const [issue, setIssue] = useState<{
     title: string;
     status: Status;
+    userId: string;
   }>({
     title: '',
     status: 'LOW' as Status,
+    userId: '',
   });
   const { mutate } = useCreateIssue();
 
   function handleCreate(e: FormEvent) {
     e.preventDefault();
-    mutate(issue);
-    setIssue({ title: '', status: 'LOW' as Status });
+    const localData = JSON.parse(localStorage.getItem('user') as string);
+    console.log(localData.id);
+    const updatedIssue = { ...issue, userId: localData.id };
+    console.log(updatedIssue);
+    mutate(updatedIssue);
+    setIssue({ title: '', status: 'LOW' as Status, userId: localData.id });
   }
 
   return (
