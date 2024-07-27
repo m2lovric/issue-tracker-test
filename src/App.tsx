@@ -6,7 +6,7 @@ import { useGetIssues } from './hooks/useGetIssues';
 import { TIssue } from './types';
 
 function App() {
-  const { data, isLoading } = useGetIssues();
+  const { data, isLoading, error } = useGetIssues();
   const [filteredData, setFilteredData] = useState<TIssue[]>();
   const [filter, setFilter] = useState(false);
   const [filterStatus, setFilterStatus] = useState('');
@@ -21,6 +21,7 @@ function App() {
   }
 
   if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <section>

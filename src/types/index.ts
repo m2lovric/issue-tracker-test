@@ -4,6 +4,7 @@ interface TIssue {
   title: string;
   status: Status;
   isDone: boolean;
+  userId: string;
 }
 
 interface TIssueForm {
