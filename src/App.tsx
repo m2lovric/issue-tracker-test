@@ -16,6 +16,17 @@ function App() {
     setFilter(true);
   }
 
+  async function handleSignOut() {
+    const res = await fetch('http://localhost:4001/signout/', {
+      method: 'POST',
+      credentials: 'include',
+    });
+    const data = res.json();
+    console.log(data);
+
+    localStorage.removeItem('user');
+  }
+
   function resetFilter() {
     setFilter(false);
   }
@@ -25,6 +36,7 @@ function App() {
 
   return (
     <section>
+      <button onClick={handleSignOut}>Sign Out</button>
       <AddIssueForm />
       <section className='flex flex-col'>
         <p>Filter by status</p>
